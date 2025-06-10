@@ -1,0 +1,34 @@
+# Node modules
+node_modules/
+.npm/
+
+# Electron Forge/Builder output
+out/
+dist/
+build/
+
+# Logs
+logs
+*.log
+npm-debug.log*
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Environment config
+.env
+.env.*
+
+# VSCode settings
+.vscode/
+
+# Packaging cache
+.cache/
+.packager-cache/
+
+# Compiled/prebuilt files
+*.tsbuildinfo
+
+# Screenshot previews
+assets/screenshots/preview.png

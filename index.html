@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>System Monitor</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      padding: 0;
+      margin: 0;
+      background: #1e1e1e;
+      color: #fff;
+    }
+    .bar-container {
+      /* margin: 1em 0; */
+      margin-left: 2em;
+      margin-right: 2em;
+    }
+    .label {
+      margin-bottom: 0.3em;
+    }
+    .bar {
+      width: 100%;
+      height: 20px;
+      background: #444;
+      border-radius: 5px;
+      overflow: hidden;
+    }
+    .fill {
+      height: 100%;
+      background: #00c853;
+      transition: width 0.5s;
+    }
+    #titlebar {
+      height: 30px;
+      background: #333;
+      color: white;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      padding: 0;
+      -webkit-app-region: drag;
+    }
+
+    #titlebar button {
+      margin-left: 10px;
+      background: transparent;
+      border: none;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+      -webkit-app-region: no-drag;
+    }
+
+    #titlebar button:hover {
+      background: #555;
+    }
+
+    #statusbar {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      background: #111;
+      color: #ccc;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      height: 24px;
+      font-size: 12px;
+      font-family: monospace;
+      border-top: 1px solid #333;
+      -webkit-user-select: none;
+    }
+
+    h1 {
+      text-align: center;
+      color: #fff;
+      margin-top: 1em;
+      text-transform: uppercase;
+      font-size: 24px;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="titlebar">
+    <button onclick="window.api.minimize()">−</button>
+    <button onclick="window.api.maximize()">☐</button>
+    <button onclick="window.api.close()">×</button>
+  </div>
+
+  <h1>System Monitor</h1>
+
+  <div class="bar-container">
+    <div class="label">CPU: <span id="cpu-text">0%</span></div>
+    <div class="bar"><div id="cpu-bar" class="fill"></div></div>
+  </div>
+
+  <div class="bar-container">
+    <div class="label">RAM: <span id="ram-text">0%</span></div>
+    <div class="bar"><div id="ram-bar" class="fill"></div></div>
+  </div>
+
+  <div class="bar-container">
+    <div class="label">Swap: <span id="swap-text">0%</span></div>
+    <div class="bar"><div id="swap-bar" class="fill"></div></div>
+  </div>
+
+  <div class="bar-container">
+    <div class="label">Red: ↓ <span id="rx"></span> / ↑ <span id="tx"></span></div>
+  </div>
+
+  <div id="statusbar">
+    <span id="app-cpu">CPU: --%</span>
+    <span id="app-ram">RAM: -- MB</span>
+    <span id="app-uptime">Uptime: --s</span>
+  </div>
+
+  <script src="renderer.js"></script>
+</body>
+</html>
