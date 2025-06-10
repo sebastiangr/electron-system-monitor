@@ -21,7 +21,7 @@ A personal excersise to learn Electron and Node.js.
 - Net usage (in/out)
 - App system CPU, RAM and Usage in realtime.
 
-## Instalación y ejecución
+## Installation
 
 ```bash
 # Clone the repository
